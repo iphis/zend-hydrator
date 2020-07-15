@@ -34,7 +34,7 @@ class ObjectProperty extends AbstractHydrator
             );
         }
 
-        $data   = get_object_vars($object);
+        $data   = (array)$object;
         $filter = $this->getFilter();
 
         foreach ($data as $name => $value) {
