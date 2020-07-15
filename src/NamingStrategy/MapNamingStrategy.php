@@ -42,7 +42,7 @@ class MapNamingStrategy implements NamingStrategyInterface
     /**
      * Safelly flip mapping array.
      *
-     * @param  array                    $array Array to flip
+     * @param array $array Array to flip
      * @return array                    Flipped array
      * @throws InvalidArgumentException
      */
@@ -60,12 +60,12 @@ class MapNamingStrategy implements NamingStrategyInterface
     /**
      * Converts the given name so that it can be extracted by the hydrator.
      *
-     * @param  string $name The original name
+     * @param string $name The original name
      * @return mixed  The hydrated name
      */
     public function hydrate($name)
     {
-        if (array_key_exists($name, $this->mapping)) {
+        if (isset($this->mapping[$name])) {
             return $this->mapping[$name];
         }
 
@@ -75,12 +75,12 @@ class MapNamingStrategy implements NamingStrategyInterface
     /**
      * Converts the given name so that it can be hydrated by the hydrator.
      *
-     * @param  string $name The original name
+     * @param string $name The original name
      * @return mixed  The extracted name
      */
     public function extract($name)
     {
-        if (array_key_exists($name, $this->reverse)) {
+        if (isset($this->reverse[$name])) {
             return $this->reverse[$name];
         }
 
