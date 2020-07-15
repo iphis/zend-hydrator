@@ -15,7 +15,6 @@ use ReflectionProperty;
 use function array_fill_keys;
 use function array_map;
 use function get_class;
-use function get_object_vars;
 
 class ObjectPropertyHydrator extends AbstractHydrator
 {
@@ -31,7 +30,7 @@ class ObjectPropertyHydrator extends AbstractHydrator
      */
     public function extract(object $object) : array
     {
-        $data   = get_object_vars($object);
+        $data   = (array)$object;
         $filter = $this->getFilter();
 
         foreach ($data as $name => $value) {
